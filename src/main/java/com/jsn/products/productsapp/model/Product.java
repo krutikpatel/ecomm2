@@ -1,5 +1,7 @@
 package com.jsn.products.productsapp.model;
 
+import java.io.Serializable;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,7 +14,7 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product implements Serializable{	//knote: serializable need for Redis caching
     @Id
     @GeneratedValue
     private Long id;
@@ -61,5 +63,10 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    // TODO do i need toString() for redis?
+    // private static final long serialVersionUID = 1L;
+    // knote: ref: https://github.com/bezkoder/spring-boot-redis-example/blob/master/src/main/java/com/bezkoder/spring/redis/model/Tutorial.java
+
 
 }
