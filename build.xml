@@ -1,0 +1,22 @@
+<project name="ecomm2MavenPackage" default="all" basedir=".">
+    <property environment="env"/>
+    
+    <target name="mvn-package">
+        <exec executable="mvn" dir="${basedir}">
+            <arg value="package"/>
+        </exec>
+    </target>
+    <!--
+    <target name="docker-build">
+        <exec executable="docker" dir="${basedir}">
+            <arg value="build"/>
+            <arg value="-t"/>
+            <arg value="your-image-name"/>
+            <arg value="."/>
+        </exec>
+    </target>
+
+    <target name="all" depends="mvn-package,docker-build"/>
+    -->
+    <target name="all" depends="mvn-package"/>
+</project>

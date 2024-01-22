@@ -75,6 +75,36 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/net.bytebuddy/byte-buddy -->
+		<!-- 
+		reason to add this byte-buddy: mvn package failed to build because of mismatch between default mockito-core and default byte buddy
+		both libs are inserted by spring
+		soln: https://howtodoinjava.com/mockito/plugin-mockmaker-error/ 
+		-->
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+		<dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-core</artifactId>
+		    <version>5.1.0</version>
+		    <scope>test</scope>
+		</dependency>
+
+		<dependency>
+		    <groupId>net.bytebuddy</groupId>
+		    <artifactId>byte-buddy</artifactId>
+		    <version>1.12.22</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/net.bytebuddy/byte-buddy-agent -->
+		<dependency>
+		    <groupId>net.bytebuddy</groupId>
+		    <artifactId>byte-buddy-agent</artifactId>
+		    <version>1.12.22</version>
+		    <scope>test</scope>
+		</dependency>
+
+
+
 	</dependencies>
 
 	<build>
