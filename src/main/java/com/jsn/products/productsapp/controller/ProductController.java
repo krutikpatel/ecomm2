@@ -27,12 +27,12 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Product getUserById(@PathVariable Long id) {
+    public Product getProductById(@PathVariable Long id) {
         return productService.getProductById(id);
     }
 
     @GetMapping("/redis/{id}")
-    public Product getUserByIdWithRedisCache(@PathVariable Long id) {
+    public Product getProductByIdWithRedisCache(@PathVariable Long id) {
         return productServiceRedisBased.getProductById(id);
     }
 

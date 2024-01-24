@@ -2,10 +2,13 @@ package com.jsn.products.productsapp.model;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 /*
@@ -14,9 +17,10 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "products")
+@JsonIgnoreProperties
 public class Product implements Serializable{	//knote: serializable need for Redis caching
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)	//knote: db will take care of id 
     private Long id;
     private String title;
     private String sku;
